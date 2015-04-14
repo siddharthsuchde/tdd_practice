@@ -1,0 +1,16 @@
+<div class = nav>
+  <%= link_to "Home", root_path, class: 'btn btn-success' %>
+</div>
+
+<h1> Enter New Brand </h1>
+<br>
+<br>
+<div class ='well'>
+<%= form_for @brand do |f| %> 
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.submit 'Create Brand', class: 'btn btn-primary' %>
+</div>
+<%end%>

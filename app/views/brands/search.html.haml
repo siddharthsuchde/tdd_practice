@@ -1,0 +1,34 @@
+%ul.nav
+  %li= link_to "Home", root_path, :class => 'brand'
+  %br
+  %div.nav_item
+    = link_to 'New Vendor', new_vendor_path, :class => 'btn'
+    = link_to 'New Brand', new_brand_path, :class => 'btn'
+    = form_tag search_brands_path, class: "col-md-5 navbar-form", :method => 'get' do
+      .form-group
+      %br
+      = text_field_tag :search, params[:search]
+      = submit_tag "Search", :name => nil
+  %br
+  %h2 Brand List
+  %table.table
+    %thead
+      %tr
+        %th(width="10%") Name
+        %th(width="15%") Supplier1
+        %th(width="15%") Supplier2
+        %th(width="15%") Supplier3
+        %th(width="15%") Supplier4
+        %th(width="15%") Supplier5
+        %th(width="15%") Supplier6
+        %th(width="15%") Supplier7
+        %th(width="15%") Supplier8
+        %th(width="15%") Supplier9
+        %th(width="15%") Supplier10
+    %tbody
+    - @results.each do |brand|
+      %tr
+        %td
+          = link_to brand.name, edit_brand_path(brand)
+        - brand.vendors.each do |vendor|
+          %td= vendor.name
