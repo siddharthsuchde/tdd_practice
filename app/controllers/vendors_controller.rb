@@ -31,7 +31,7 @@ class VendorsController < ApplicationController
   def update
     @vendor = Vendor.find(params[:id])
     if @vendor.update(vendor_params)
-      flash[:notice] = 'Vendor Details Successfully Updated'
+      flash[:success] = 'Vendor Details Successfully Updated'
       redirect_to root_path
     else
       render :edit

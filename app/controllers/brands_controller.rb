@@ -26,9 +26,17 @@ class BrandsController < ApplicationController
   end
   
   def edit
+    @brand = Brand.find(params[:id])
   end
   
   def update
+    @brand = Brand.find(params[:id])
+    if @brand.update(brand_params)
+      flash[:success] = "Brand Details Were Successfully Updated"
+      redirect_to brands_path
+    else
+      render :edit
+    end
   end
   
   def search
