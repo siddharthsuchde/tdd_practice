@@ -7,7 +7,7 @@ describe VendorsController do
       vendor1 = Fabricate(:vendor, name: "Bob")
       vendor2 = Fabricate(:vendor, name: "Alex")
       get :index
-      expect(Vendor.all).to eq([vendor2, vendor1])
+      expect(assigns(:vendors)).to match_array([vendor2, vendor1])
     end
   end
   

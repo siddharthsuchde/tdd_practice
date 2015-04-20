@@ -6,7 +6,7 @@ describe BrandsController do
       brand1 = Fabricate(:brand, name: "bablolat")
       brand2 = Fabricate(:brand, name: "ashaway")
       get :index
-      expect(Brand.all).to eq([brand2, brand1])
+      expect(assigns(:brands)).to match_array([brand2, brand1])
     end
   end
   
